@@ -1,4 +1,6 @@
-export const navbarData = [
+import { INavbarData } from "./helper";
+
+export const navbarData : INavbarData[]= [
     {
         routeLink: 'dashboard',
         icon: 'fal fa-home',
@@ -25,6 +27,10 @@ export const navbarData = [
             {
                 routeLink: 'settings/alarm',
                 label: 'Alarm Settings'
+            },
+            {
+                routeLink: 'settings/language',
+                label: 'Language'
             }
         ]
 

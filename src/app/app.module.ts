@@ -9,7 +9,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { StatisticsComponent } from './statistics/statistics.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http'
+import { SublevelMenuComponent } from './sidenav/sublevel-menu.component'
 
 @NgModule({
   declarations: [
@@ -19,7 +20,9 @@ import { HttpClientModule } from '@angular/common/http';
     DashboardComponent,
     SettingsComponent,
     SidenavComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    SublevelMenuComponent
+
   ],
   imports: [
     BrowserModule,
