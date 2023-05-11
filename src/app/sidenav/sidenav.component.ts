@@ -1,7 +1,8 @@
 import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 import { navbarData } from './navbarData';
 import { INavbarData } from './helper';
-import { animate, style, transition, trigger } from '@angular/animations';
+import { Router } from '@angular/router';
+//import { animate, keyframes, style, transition, trigger } from '@angular/animations';
 
 interface SideNavToggle {
   screenWidth: number
@@ -12,22 +13,6 @@ interface SideNavToggle {
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.scss'],
-  animations: [
-    trigger('fadeInOut', [
-      transition(':enter', [
-        style({opacity: 0}),
-        animate('350ms',
-          style({opacity: 1})
-        )
-      ]),
-      trigger('leave', [
-        style({opacity: 1}),
-        animate('350ms',
-          style({opacity: 0})
-        )
-      ])
-    ])
-  ]
 })
 
 export class SidenavComponent  implements OnInit {
@@ -43,9 +28,11 @@ export class SidenavComponent  implements OnInit {
     this.screenWidth = window.innerWidth;
     if(this.screenWidth <= 768) {
       this.collapsed = false;
-      this.onToggleSideNav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth})
+      this.onToggleSideNav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth});
     }
   }
+
+  constructor(public router: Router) {}
 
   ngOnInit(): void {
     this.screenWidth = window.innerWidth;
@@ -62,13 +49,22 @@ export class SidenavComponent  implements OnInit {
   }
 
   handleClick(item: INavbarData): void {
-    if(!this.multiple) {
+   this.shrinkItems(item)
+    item.expanded = !item.expanded
+  }
+
+
+  getActiveClass(data: INavbarData): string {
+    return this.router.url.includes(data.routeLink) ? 'active' : '';
+  }
+
+  shrinkItems(item: INavbarData): void {
+    if (!this.multiple) {
       for(let modelItem of this.navData) {
         if (item !== modelItem && modelItem.expanded) {
           modelItem.expanded = false;
         }
       }
     }
-    item.expanded = !item.expanded
   }
 }
