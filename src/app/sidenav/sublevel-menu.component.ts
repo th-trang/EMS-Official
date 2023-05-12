@@ -18,6 +18,7 @@ import { Router } from "@angular/router";
             <a  class="sublevel-nav-link"
                 (click)="handleClick(item)"  
                 *ngIf="item.items && item.items.length > 0"
+                [ngClass]="getActiveClass(item)"
             >
                 <i class="sublevel-link-icon fa fa-circle"></i>
                 <span class="sublevel-link-text" *ngIf="collapsed">{{item.label}}</span>

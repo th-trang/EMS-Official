@@ -50,11 +50,10 @@ export const navbarData : INavbarData[]= [
                 label: 'Flue Gas Pressure',
             },
             {
-                routeLink: 'statistics/flue gas temp.',
-                label: 'Flue Gas Temp.',
+                routeLink: 'statistics/flue gas temperature',
+                label: 'Flue Gas Temperature',
             },
         ]
-
     },
     {
         routeLink: 'alarm',
