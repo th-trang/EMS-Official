@@ -1,8 +1,11 @@
 <div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed' : ''">
     <div class="logo-container">
-        <button class="logo" (click)='toggleCollapse()'>H</button>
-        <div class="logo-text" @fadeInOut *ngIf="collapsed">Home</div>
-        <button class="btn-close" @rotate *ngIf="collapsed" (click)="closeSidenav()">
+        <button class="logo" [ngClass]="collapsed ? 'logo' : 'logo-text'"
+        (click)='toggleCollapse()'>TL</button>
+        <div class="logo-text" *ngIf="collapsed">
+            Thang Long Energy Environment Joint Stock Company
+        </div>
+        <button class="btn-close" *ngIf="collapsed" (click)="closeSidenav()">
             <i class="fal fa-times close-icon"></i>
         </button>
     </div>
@@ -37,6 +40,10 @@
                 </div>
             </li>
         </ul>
+        <div class="logo" [ngClass]="collapsed ? 'sidenav-collapsed' : ''">
+            <img src="./assets/img/thang-long-logo-transparent (2) (1).png" alt="ESEC logo" class="thang-long-log">
+            <img src="./assets/img/esec3-transparent (1) (2).png" alt="ESEC logo" class="esec-log">    
+        </div>
     </div>
 </div>
 
