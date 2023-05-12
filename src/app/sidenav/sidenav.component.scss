@@ -28,12 +28,34 @@
         }
 
         .logo-text {
-            margin-left: 1.5rem;
-            font-size: 24px;
-            font-weight: 700;
+            margin-left: 0.1rem;
+            text-align: center;
+            font-size: 15px;
+            font-weight: 600;
             color: #393E46;
         }
 
+        .logo-img {
+            height: 3rem;
+            width: 12rem;
+            border-radius: 1;
+        }
+    
+        .another-logo {
+            align-items: center;
+            position: bottom;
+            width: 3rem;
+            min-width: 3rem;
+            border-radius: 0.313rem;
+            padding: 0.313rem;
+            font-weight: 900;
+            .esec-logo, .thang-long-logo {
+                height: 3rem;
+                width: 12rem;
+                border-radius: 1;
+            }
+        }
+   
         .btn-close {
             margin-left: auto;
             cursor: pointer;
@@ -52,7 +74,7 @@
 }
 
 .sidenav-collapsed {
-    width: 16rem;
+    width: 18.5625rem;
 } 
 
 .sidenav-nav {
@@ -143,7 +165,6 @@
 
             .sublevel-link-text {
                 margin-left: 0.8rem;
-
             }
         }
 

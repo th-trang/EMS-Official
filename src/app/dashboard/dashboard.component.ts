@@ -50,7 +50,7 @@ export class DashboardComponent {
   },
   {
     tag: '1HNE10CQ201',
-    name: 'Flue gas HO2',
+    name: 'Flue gas 02',
     setPoint: '0 ... 21',
     realtimeValue: '',
     unit: 'vol-% O2',
