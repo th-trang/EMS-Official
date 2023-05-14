@@ -7,10 +7,10 @@ import { AppComponent } from './app.component';
 import { AlarmComponent } from './alarm/alarm.component';
 import { BodyComponent } from './body/body.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { SettingsComponent } from './settings/settings.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { HttpClientModule } from '@angular/common/http'
-import { SublevelMenuComponent } from './sidenav/sublevel-menu.component'
+import { SublevelMenuComponent } from './sidenav/sublevel-menu.component';
+
 
 @NgModule({
   declarations: [
@@ -18,9 +18,9 @@ import { SublevelMenuComponent } from './sidenav/sublevel-menu.component'
     AlarmComponent,
     BodyComponent,
     DashboardComponent,
-    SettingsComponent,
     SidenavComponent,
-    SublevelMenuComponent
+    SublevelMenuComponent,
+
 
   ],
   imports: [

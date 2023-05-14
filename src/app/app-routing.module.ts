@@ -11,9 +11,12 @@ const routes: Routes = [
   {
     path: 'statistics',
     loadChildren: () => import('./statistics/statistics.module').then(m => m.StatisticsModule),
-   },
+  },
   {path: 'alarm', component: AlarmComponent},
-  {path: 'settings', component: SettingsComponent},
+  {
+    path: 'settings', 
+    loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule)
+  },
 ];
 
 @NgModule({
