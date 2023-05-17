@@ -4,78 +4,67 @@
     position: fixed;
     z-index: 1;
     top: 0;
-    width: 5rem;
+    width: 17.5625rem;
     height: 100vh;
 
-    .logo-container {
+    .thang-long-logo {
         display: flex;
         align-items: center;
         padding: 0.938rem 0.938rem 0 0.938rem;
         width: 100%;
 
-        .logo {
-            background: #fff;
-            text-align: center;
-            width: 3rem;
-            min-width: 3rem;
-            border-radius: 0.313rem;
-            padding: 0.313rem;
-            font-size: 24px;
-            font-weight: 900;
-            cursor: pointer;
-            border: none;
-            color: #0B2447;
-        }
+        // .logo {
+        //     background: #fff;
+        //     text-align: center;
+        //     width: 3rem;
+        //     min-width: 3rem;
+        //     border-radius: 0.313rem;
+        //     padding: 0.313rem;
+        //     font-size: 24px;
+        //     font-weight: 900;
+        //     cursor: pointer;
+        //     border: none;
+        //     color: #0B2447;
+        // }
 
-        .logo-text {
-            margin-left: 0.1rem;
-            text-align: center;
-            font-size: 15px;
-            font-weight: 600;
-            color: #393E46;
-        }
+        // .logo-text {
+        //     margin-left: 0.1rem;
+        //     text-align: center;
+        //     font-size: 15px;
+        //     font-weight: 600;
+        //     color: #393E46;
+        // }
 
-        .logo-img {
-            height: 3rem;
-            width: 12rem;
-            border-radius: 1;
-        }
-    
-        .another-logo {
+        // .logo-img {
+        //     height: 3rem;
+        //     width: 12rem;
+        //     border-radius: 1;
+        // }
+            
+        .esec-logo {
             align-items: center;
-            position: bottom;
+            position: relative;
             width: 3rem;
             min-width: 3rem;
             border-radius: 0.313rem;
             padding: 0.313rem;
             font-weight: 900;
-            .esec-logo, .thang-long-logo {
+                    
+            .esec-logo-img {
                 height: 3rem;
                 width: 12rem;
                 border-radius: 1;
-            }
-        }
-   
-        .btn-close {
-            margin-left: auto;
-            cursor: pointer;
-            width: 2rem;
-            height: 2rem;
-            border-radius: 50%;
-            background-color: transparent;
-            border: none;
+                position: absolute;
+                bottom: 0%;
 
-            .fa-times {
-                color: #0B2447;
-                font-size: 24px;
-            }
-        }
+                .fa-times {
+                    color: #0B2447;
+                    font-size: 24px;
+                }
+        }    }
     }
 }
 
-.sidenav-collapsed {
-    width: 18.5625rem;
-} 
 
 .sidenav-nav {
     list-style: none;
@@ -111,6 +100,7 @@
                 margin-left: 1.5rem;
             }
         }
+        
         .sidenav-nav-item:hover {
             background-color: #A5D7E8;
             color: #fff;
@@ -187,7 +177,7 @@
 }
 
 .sidenav-nav,
-.scrollwrap:hover,
+.scrollwrap,
 .scrollwrap:focus {
     visibility: visible;
 }
@@ -196,9 +186,9 @@
     transition: visibility 0.5s 0.2s;
 }
 
-.scrollwrap_delayed:hover {
-    transition: visibility 0.2s 0.2s
-}
+// .scrollwrap_delayed:hover {
+//     transition: visibility 0.2s 0.2s
+// }
 
 .scrollwrap::-webkit-scrollbar-track {
     background: transparent;

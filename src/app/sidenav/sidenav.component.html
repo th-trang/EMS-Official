@@ -1,13 +1,6 @@
-<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed' : ''">
-    <div class="logo-container">
-        <button class="logo" [ngClass]="collapsed ? 'logo' : 'logo-text'"
-        (click)='toggleCollapse()'>TL</button>
-        <div class="logo-text" *ngIf="collapsed">
-            Thang Long Energy Environment Joint Stock Company
-        </div>
-        <button class="btn-close" *ngIf="collapsed" (click)="closeSidenav()">
-            <i class="fal fa-times close-icon"></i>
-        </button>
+<div class="sidenav">
+    <div class="thang-long-logo">
+        <img src="./assets/img/thang-long-logo-transparent (2) (1).png" alt="Thang Long logo" class="thang-long-logo-img">  
     </div>
     <div class="scrollwrap scrollwrap_delayed" >
         <ul class="sidenav-nav">
@@ -16,10 +9,11 @@
                     *ngIf="data.items && data.items.length > 0"
                     [ngClass]="getActiveClass(data)">
                     <i class="sidenav-link-icon" [class]="data.icon"></i>
-                    <span class="sidenav-link-text" *ngIf="collapsed">{{data.label}}</span>
-                    <i *ngIf="data.items && collapsed" class="menu-collapse-icon"
+                    <span class="sidenav-link-text">{{data.label}}</span>
+                    <i *ngIf="data.items" class="menu-collapse-icon"
                         [ngClass]="!data.expanded ? 'fal fa-angle-right' : 'fal fa-angle-down'"
-                    ></i>
+                    >
+                </i>
                 </a>
 
                 <a  class="sidenav-nav-link" 
@@ -28,21 +22,19 @@
                     routerLinkActive="active" 
                     [routerLinkActiveOptions]="{exact: true}">
                     <i class="sidenav-link-icon" [class]="data.icon"></i>
-                    <span class="sidenav-link-text"  *ngIf="collapsed">{{data.label}}</span>
+                    <span class="sidenav-link-text">{{data.label}}</span>
                 </a>
-                <div *ngIf="collapsed && data.items && data.items.length > 0">
+                <div *ngIf="data.items && data.items.length > 0">
                     <app-sublevel-menu
                     [data]="data"
-                    [collapsed]="collapsed"
                     [multiple]="multiple"
                     [expanded]="data.expanded">
                     </app-sublevel-menu>
                 </div>
             </li>
         </ul>
-        <div class="logo" [ngClass]="collapsed ? 'sidenav-collapsed' : ''">
-            <img src="./assets/img/thang-long-logo-transparent (2) (1).png" alt="Thang Long logo" class="thang-long-log">
-            <img src="./assets/img/esec3-transparent (1) (2).png" alt="ESEC logo" class="esec-log">    
+        <div class="esec-logo">
+            <img src="./assets/img/esec3-transparent (1) (2).png" alt="ESEC logo" class="esec-logo-img">  
         </div>
     </div>
 </div>

@@ -3,7 +3,6 @@ import { ServerService } from './server.service';
 
 interface SideNavToggle {
   screenWidth: number;
-  collapsed: boolean;
 }
 
 @Component({
@@ -29,11 +28,9 @@ export class AppComponent implements OnInit{
     ;
   }
   
-  isSideNavCollapsed = false
   screenWidth = 0;
 
   onToggleSideNav(data: SideNavToggle) {
     this.screenWidth = data.screenWidth;
-    this.isSideNavCollapsed = data.collapsed;
   }
 }
