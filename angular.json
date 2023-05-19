@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/emission-monitoring-system",
+            "outputPath": "dist/EmissionMonitoringSystem/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -97,6 +97,61 @@
             ],
             "scripts": []
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/EmissionMonitoringSystem/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json",
+            "inlineStyleLanguage": "scss"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false,
+              "vendorChunk": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "EmissionMonitoringSystem:build:development",
+              "serverTarget": "EmissionMonitoringSystem:server:development"
+            },
+            "production": {
+              "browserTarget": "EmissionMonitoringSystem:build:production",
+              "serverTarget": "EmissionMonitoringSystem:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "EmissionMonitoringSystem:build:production",
+              "serverTarget": "EmissionMonitoringSystem:server:production"
+            },
+            "development": {
+              "browserTarget": "EmissionMonitoringSystem:build:development",
+              "serverTarget": "EmissionMonitoringSystem:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

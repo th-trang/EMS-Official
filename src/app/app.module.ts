@@ -11,6 +11,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { HttpClientModule } from '@angular/common/http'
 import { SublevelMenuComponent } from './sidenav/sublevel-menu.component';
 import { FormsModule } from '@angular/forms';
+import { provideClientHydration } from '@angular/platform-browser';
 
 
 @NgModule({
@@ -21,8 +22,6 @@ import { FormsModule } from '@angular/forms';
     DashboardComponent,
     SidenavComponent,
     SublevelMenuComponent,
-
-
   ],
   imports: [
     BrowserModule,
@@ -30,9 +29,9 @@ import { FormsModule } from '@angular/forms';
     MatTableModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
   ],
-  providers: [],
+  providers: [ provideClientHydration() ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
