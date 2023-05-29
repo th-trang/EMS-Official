@@ -11,6 +11,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { HttpClientModule } from '@angular/common/http'
 import { SublevelMenuComponent } from './sidenav/sublevel-menu.component';
 import { FormsModule } from '@angular/forms';
+import { ServerService } from './server.service';
 
 
 @NgModule({
@@ -32,7 +33,7 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [ServerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

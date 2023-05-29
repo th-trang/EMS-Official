@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http'
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServerService {
+  
+  constructor(private http: HttpClient) {}
 
-  constructor(private http : HttpClient) { }
-
-  getData() {
-    return this.http.get('/api/getData')
+  dailyUpdate() {
+    return this.http.get('http://localhost:4200/assets/fakedata.json')
+    .pipe(map((result: any) => result))
   }
 }

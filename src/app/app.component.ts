@@ -1,36 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ServerService } from './server.service';
 
-interface SideNavToggle {
-  screenWidth: number;
-}
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent {
   title = 'EmissionMonitoringSystem';
+  chart: any;
   
-  constructor(private service : ServerService) {}
-
-  ngOnInit() {
-    this.getDataFromApi
-  }
-
-  getDataFromApi() {
-    this.service.getData().subscribe((response) => {
-      console.log ('Response from API is ', response)
-    }, (error) => {
-      console.log('Error is ', error)
-    })
-    ;
-  }
-  
-  screenWidth = 0;
-
-  onToggleSideNav(data: SideNavToggle) {
-    this.screenWidth = data.screenWidth;
-  }
 }
