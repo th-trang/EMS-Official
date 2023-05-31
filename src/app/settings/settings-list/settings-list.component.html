@@ -1,5 +1,5 @@
-<h1>Gas Component Customization</h1>
-
+<h1>Alarm Customization</h1>
+<br>
     <div class="gasComponents">
         <ng-container *ngFor="let data of gasComponent">
            <span class="tag-label"><b>Tag: {{data.tag}}</b></span>
@@ -18,5 +18,5 @@
 <div class="button">
     <button class="btn btn-primary" 
     disabled="upperbound === '' && lowerbound === ''"
-    (click)="onSave($event)">Save</button>
+    (click)="onUpdate($event)">Save</button>
 </div>

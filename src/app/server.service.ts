@@ -13,4 +13,14 @@ export class ServerService {
     return this.http.get('http://localhost:4200/assets/fakedata.json')
     .pipe(map((result: any) => result))
   }
+
+  dashboardUpdate() {
+    return this.http.get('http://localhost:4200/assets/datalogger.json')
+    .pipe(map((result: any) => result))
+  }
+
+  alarmSettingsUpdate() {
+    return this.http.get('http://localhost:4200/assets/datalogger.json')
+    .pipe(map((result: any) => result))
+  }
 }

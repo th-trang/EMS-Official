@@ -1,0 +1,82 @@
+[
+  {
+    "tag": "1HNE10CQ207",
+    "name": "Flue gas H2O",
+    "setPoint": "8",
+    "realtimeValue": "9",
+    "unit": "vol-%(wet)",
+    "designP": "at stack"
+  },
+  {
+    "tag": "1HNE10CQ205",
+    "name": "Flue gas HCl",
+    "setPoint": "9",
+    "realtimeValue": "8",
+    "unit": "mg/Nm3(dry) 12 vol-% O2",
+    "designP": "at stack"
+  },
+  {
+    "tag": "1HNE10CQ204",
+    "name": "Flue gas SO2",
+    "setPoint": "10",
+    "realtimeValue": "7",
+    "unit": "mg/Nm3(dry) 12 vol-% O2",
+    "designP": "at stack"
+  },
+  {
+    "tag": "1HNE10CQ203",
+    "name": "Flue gas NOx",
+    "setPoint": "7",
+    "realtimeValue": "6",
+    "unit": "mg/Nm3(dry) 12 vol-% O2",
+    "designP": "at stack"
+  },
+  {
+    "tag": "1HNE10CQ202",
+    "name": "Flue gas CO",
+    "setPoint": "6",
+    "realtimeValue": "5",
+    "unit": "mg/Nm3(dry) 12 vol-% O2",
+    "designP": "at stack"
+  },
+  {
+    "tag": "1HNE10CQ201",
+    "name": "Flue gas 02",
+    "setPoint": "5",
+    "realtimeValue": "4",
+    "unit": "vol-% O2",
+    "designP": "at stack"
+  },
+  {
+    "tag": "1HNE10CQ206",
+    "name": "Flue gas dust",
+    "setPoint": "4",
+    "realtimeValue": "3",
+    "unit": "mg/Nm3(dry) 12 vol-% O2",
+    "designP": "at stack"
+  },
+  {
+    "tag": "1HNE10CF201",
+    "name": "Flue gas flow",
+    "setPoint": "3",
+    "realtimeValue": "2",
+    "unit": "Nm3/s(wet)",
+    "designP": "at stack"
+  },
+  {
+    "tag": "1HNE10CP201",
+    "name": "Flue gas pressure",
+    "setPoint": "2",
+    "realtimeValue": "1",
+    "unit": "Pa(g)",
+    "designP": "at stack"
+  },
+  {
+    "tag": "1HNE10CT201",
+    "name": "Flue gas temp.",
+    "setPoint": "1",
+    "realtimeValue": "0",
+    "unit": "oC",
+    "designP": "at stack"
+  }
+]

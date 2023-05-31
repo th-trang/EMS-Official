@@ -1,13 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { gasComponentDetails } from './gasComponent';
+import { ServerService } from '../../server.service';
 
 @Component({
   selector: 'app-settings-list',
   templateUrl: './settings-list.component.html',
   styleUrls: ['./settings-list.component.scss']
 })
-export class SettingsListComponent {
-    gasComponent: gasComponentDetails[] = [
+export class SettingsListComponent implements OnInit {
+
+  constructor(private data: ServerService) {}
+  
+  ngOnInit(): void {
+    this.data.alarmSettingsUpdate().subscribe(res => {
+      let tag = res.map((res:any) => res.tag)
+      let name = res.map((res:any) => res.name)
+      let upperbound = res.map((res:any) => res.upperbound)
+      let lowerbound = res.map((res:any) => res.lowerbound)
+
+      console.log(tag, name, upperbound, lowerbound)
+    })
+  }
+
+  gasComponent: gasComponentDetails[] = [
     {
       tag: '1HNE10CQ207',
       name: 'Flue gas H2O',
@@ -69,16 +84,12 @@ export class SettingsListComponent {
       lowerbound: '',
     }]
 
-  displayGasComponent: string[] = ['tag','name','upperbound', 'lowerbound']
-  upperbound:string='0';
-  lowerbound:string='0';
+  displayGasComponent: string[] = ['tag', 'name', 'upperbound', 'lowerbound']
+  upperbound: string = '0';
+  lowerbound: string = '0';
 
   onUpdate(event: any) {
     this.upperbound = (<HTMLInputElement>event.target).value;
     this.lowerbound = (<HTMLInputElement>event.target).value;
-  }
-
-  onSave(event: any) {
-    
   }
 }
