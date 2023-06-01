@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SettingsListComponent } from './settings-list/settings-list.component';
+import { CustomizationComponent } from './settings-list/customization.component';
+import { LoginComponent } from '../login/login.component';
 
 const routes: Routes = [
   {
     path: 'customize',
-    component: SettingsListComponent
+    component: CustomizationComponent
   },
   {
     path: 'logout',
-    component: SettingsListComponent
+    component: LoginComponent
   },
 ];
 
