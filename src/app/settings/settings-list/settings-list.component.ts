@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { gasComponentDetails } from './gasComponent';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { gasComponent } from './gasComponent';
 import { ServerService } from '../../server.service';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { RangeModificationComponent } from './range-modification/range-modification.component';
 
 @Component({
   selector: 'app-settings-list',
@@ -9,87 +13,38 @@ import { ServerService } from '../../server.service';
 })
 export class SettingsListComponent implements OnInit {
 
-  constructor(private data: ServerService) {}
+  @ViewChild(MatSort) sort!: MatSort;
+
+  public gasComponents: gasComponent[] = []
+  public displayColumns: string[] = ['tag','name', 'upperbound', 'lowerbound']
+  dataSource!: MatTableDataSource<any>
+
+  constructor(private data: ServerService, private _dialog: MatDialog) {}
   
   ngOnInit(): void {
-    this.data.alarmSettingsUpdate().subscribe(res => {
-      let tag = res.map((res:any) => res.tag)
-      let name = res.map((res:any) => res.name)
-      let upperbound = res.map((res:any) => res.upperbound)
-      let lowerbound = res.map((res:any) => res.lowerbound)
+    this.getAlarmSettingsInfo()
+  }
 
-      console.log(tag, name, upperbound, lowerbound)
+  getAlarmSettingsInfo() {
+    this.data.getData().subscribe(res => {
+      this.dataSource = res
     })
   }
 
-  gasComponent: gasComponentDetails[] = [
-    {
-      tag: '1HNE10CQ207',
-      name: 'Flue gas H2O',
-      upperbound: '',
-      lowerbound: '',
-    },
-    {
-      tag: '1HNE10CQ205',
-      name: 'Flue gas HCl',
-      upperbound: '',
-      lowerbound: '',
-    },
-    {
-      tag: '1HNE10CQ204',
-      name: 'Flue gas SO2',
-      upperbound: '',
-      lowerbound: '',
-    },
-    {
-      tag: '1HNE10CQ203',
-      name: 'Flue gas NOx',
-      upperbound: '',
-      lowerbound: '',
-    },
-    {
-      tag: '1HNE10CQ202',
-      name: 'Flue gas CO',
-      upperbound: '',
-      lowerbound: '',
-    },
-    {
-      tag: '1HNE10CQ201',
-      name: 'Flue gas O2',
-      upperbound: '',
-      lowerbound: '',
-    },
-    {
-      tag: '1HNE10CQ206',
-      name: 'Flue gas dust',
-      upperbound: '',
-      lowerbound: '',
-    },
-    {
-      tag: '1HNE10CF201',
-      name: 'Flue gas flow',
-      upperbound: '',
-      lowerbound: '',
-    },
-    {
-      tag: '1HNE10CP201',
-      name: 'Flue gas pressure',
-      upperbound: '',
-      lowerbound: '',
-    },
-    {
-      tag: '1HNE10CT201',
-      name: 'Flue gas temperature',
-      upperbound: '',
-      lowerbound: '',
-    }]
+  openEditForm(data: any) {
+    const dialogRef = this._dialog.open(RangeModificationComponent, {
+      data,
+      height: '355px',
+      width: '700px',
+      position: {left:'450px', top:'-600px'}
+    });
 
-  displayGasComponent: string[] = ['tag', 'name', 'upperbound', 'lowerbound']
-  upperbound: string = '0';
-  lowerbound: string = '0';
-
-  onUpdate(event: any) {
-    this.upperbound = (<HTMLInputElement>event.target).value;
-    this.lowerbound = (<HTMLInputElement>event.target).value;
+    dialogRef.afterClosed().subscribe({
+      next: (val: any) => {
+        if (val) {
+          this.getAlarmSettingsInfo();
+        }
+      },
+    });
   }
 }

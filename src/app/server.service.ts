@@ -14,9 +14,13 @@ export class ServerService {
     .pipe(map((result: any) => result))
   }
 
-  dashboardUpdate() {
+  getData() {
     return this.http.get('http://localhost:4200/assets/datalogger.json')
     .pipe(map((result: any) => result))
+  }
+
+  updateData(tag: string, data:any) {
+    return this.http.put(`http://localhost:4200/assets/datalogger.json/${tag}`, data);
   }
 
   alarmSettingsUpdate() {

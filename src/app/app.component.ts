@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ServerService } from './server.service';
+import { Component } from '@angular/core';
 
 
 @Component({
@@ -9,6 +8,5 @@ import { ServerService } from './server.service';
 })
 export class AppComponent {
   title = 'EmissionMonitoringSystem';
-  chart: any;
   
 }
