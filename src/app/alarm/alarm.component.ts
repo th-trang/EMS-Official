@@ -8,9 +8,9 @@ import { alarmData } from './alarmInfo';
   styleUrls: ['./alarm.component.scss']
 })
 export class AlarmComponent implements OnInit{
-  alarmData: alarmData[] = [];
+  filteredData: any;
   displayColumns: string[] = ['tag', 'name', 'status', 'dt', 'realtimeValue']
-
+  unfilteredData: alarmData[] = []
   constructor(private data: ServerService) { }
 
   ngOnInit(): void {
@@ -19,8 +19,10 @@ export class AlarmComponent implements OnInit{
 
   getAlarmData() {
     this.data.getData().subscribe(res => {
-      this.alarmData = res
+      this.unfilteredData = res
+      this.filteredData = this.unfilteredData.filter((item) => item.status === 'High')
     })
   }
+
 
 }
