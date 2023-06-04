@@ -19,7 +19,7 @@ export class AlarmComponent implements OnInit{
 
   getAlarmData() {
     this.data.getData().subscribe(res => {
-
+      this.alarmData = res
     })
   }
 

@@ -28,6 +28,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ModifyDashboardComponent } from './dashboard/modify-dashboard/modify-dashboard.component';
 import { RangeModificationComponent } from './settings/settings-list/range-modification/range-modification.component';
+import { DateConvertPipe } from './shared/date-convert.pipe';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { RangeModificationComponent } from './settings/settings-list/range-modif
     SublevelMenuComponent,
     ModifyDashboardComponent,
     RangeModificationComponent,
+    DateConvertPipe
 
   ],
   imports: [
