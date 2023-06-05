@@ -29,6 +29,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ModifyDashboardComponent } from './dashboard/modify-dashboard/modify-dashboard.component';
 import { RangeModificationComponent } from './settings/settings-list/range-modification/range-modification.component';
 import { DateConvertPipe } from './shared/date-convert.pipe';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -62,11 +63,11 @@ import { DateConvertPipe } from './shared/date-convert.pipe';
     MatSelectModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatTableModule,
     MatPaginatorModule,
     MatSortModule,
     MatSnackBarModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule,
   ],
   providers: [ServerService],
   bootstrap: [AppComponent],

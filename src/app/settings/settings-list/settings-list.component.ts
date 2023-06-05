@@ -34,7 +34,7 @@ export class SettingsListComponent implements OnInit {
   openEditForm(data: any) {
     const dialogRef = this._dialog.open(RangeModificationComponent, {
       data,
-      height: '355px',
+      height: '400px',
       width: '700px',
       position: {left:'450px', top:'-600px'}
     });
