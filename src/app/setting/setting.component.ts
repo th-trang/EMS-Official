@@ -1,22 +1,22 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { gasComponent } from './gasComponent';
-import { ServerService } from '../../server.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { ServerService } from '../server.service';
+import { gasComponent } from './gasComponent';
 import { RangeModificationComponent } from './range-modification/range-modification.component';
 
 @Component({
-  selector: 'app-settings-list',
-  templateUrl: './settings-list.component.html',
-  styleUrls: ['./settings-list.component.scss']
+  selector: 'app-setting',
+  templateUrl: './setting.component.html',
+  styleUrls: ['./setting.component.scss']
 })
-export class SettingsListComponent implements OnInit {
-
+export class SettingComponent implements OnInit {
+  
   @ViewChild(MatSort) sort!: MatSort;
 
   public gasComponents: gasComponent[] = []
-  public displayColumns: string[] = ['tag','name', 'upperbound', 'lowerbound']
+  public displayColumns: string[] = ['tag','name', 'upperbound', 'lowerbound','action']
   dataSource!: MatTableDataSource<any>
 
   constructor(private data: ServerService, private _dialog: MatDialog) {}
@@ -27,7 +27,7 @@ export class SettingsListComponent implements OnInit {
 
   getAlarmSettingsInfo() {
     this.data.getData().subscribe(res => {
-      this.dataSource = res
+      this.gasComponents = res
     })
   }
 
@@ -47,4 +47,5 @@ export class SettingsListComponent implements OnInit {
       },
     });
   }
+
 }

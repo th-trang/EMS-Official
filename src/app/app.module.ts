@@ -27,7 +27,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ModifyDashboardComponent } from './dashboard/modify-dashboard/modify-dashboard.component';
-import { RangeModificationComponent } from './settings/settings-list/range-modification/range-modification.component';
+import { RangeModificationComponent } from './setting/range-modification/range-modification.component';
 import { DateConvertPipe } from './shared/date-convert.pipe';
 import {MatCardModule} from '@angular/material/card';
 
@@ -47,7 +47,6 @@ import {MatCardModule} from '@angular/material/card';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatTableModule,
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -68,6 +67,7 @@ import {MatCardModule} from '@angular/material/card';
     MatSnackBarModule,
     MatIconModule,
     MatCardModule,
+    MatTableModule
   ],
   providers: [ServerService],
   bootstrap: [AppComponent],

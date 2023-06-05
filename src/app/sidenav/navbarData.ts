@@ -62,19 +62,19 @@ export const navbarData : INavbarData[]= [
 
     },
     {
-        routeLink: 'settings',
+        routeLink: 'setting',
         icon: 'fal fa-cog',
         label: 'Settings',
         expanded: false,
         items: [
             {
-                routeLink: 'settings/customize',
+                routeLink: 'setting/customize',
                 label: 'Alarm Settings'
             },
-            {
-                routeLink: 'settings/logout',
-                label: 'Log Out',
-            }
+            // {
+            //     routeLink: 'setting/logout',
+            //     label: 'Log Out',
+            // }
         ]
     }  
 ]

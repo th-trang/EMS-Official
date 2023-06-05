@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AlarmComponent } from './alarm/alarm.component';
-import { StatisticsComponent } from './statistics/statistics.component';
-import { SettingsComponent } from './settings/settings.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
@@ -14,8 +12,8 @@ const routes: Routes = [
   },
   {path: 'alarm', component: AlarmComponent},
   {
-    path: 'settings', 
-    loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule)
+    path: 'setting', 
+    loadChildren: () => import('./setting/setting.module').then(m => m.SettingModule)
   },
 ];
 

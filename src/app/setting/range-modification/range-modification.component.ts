@@ -1,8 +1,8 @@
 import { Component, Inject } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ModifyDashboardComponent } from '../../../dashboard/modify-dashboard/modify-dashboard.component';
-import { ServerService } from '../../../server.service';
+import { ModifyDashboardComponent } from '../../dashboard/modify-dashboard/modify-dashboard.component';
+import { ServerService } from '../../server.service';
 
 @Component({
   selector: 'app-range-modification',
