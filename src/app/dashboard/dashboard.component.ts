@@ -28,17 +28,20 @@ export class DashboardComponent implements OnInit {
   }
 
   getDashboardInfo() {
-    this.data.getData().subscribe(res => {
-      this.dashboardData = res;
+    this.data.getData().subscribe({
+      next: (res) => {
+        this.dataSource = new MatTableDataSource(res)
+        this.dataSource.sort = this.sort
+      },
+      error: console.log
     })
   }
 
   openEditForm(data: any) {
     const dialogRef = this._dialog.open(ModifyDashboardComponent, {
       data,
-      height: '355px',
-      width: '700px',
-      position: {left:'450px', top:'-600px'}
+      height: '450px',
+      width: '500px',
     });
 
     dialogRef.afterClosed().subscribe({

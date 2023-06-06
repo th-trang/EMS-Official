@@ -15,8 +15,7 @@ export class StatisticsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.data.dailyUpdate().subscribe(res=> {
-      let temp_max = res.map((res:any) => res.main.temp_max)
-      let temp_min = res.map((res:any) => res.main.temp_min)
+      let value = res.map((res:any) => res.realtimeValue)
       let date = res.map((res:any) => res.dt)
 
       let allDates: string[] = []
@@ -31,13 +30,8 @@ export class StatisticsListComponent implements OnInit {
         data: {
           labels: allDates,
           datasets: [{
-            label: 'Minimum Temperature',
-            data: temp_min,
-            borderWidth: 1
-          },
-          {
-            label: 'Maximum Temperature',
-            data: temp_max,
+            label: 'Value',
+            data: value,
             borderWidth: 1
           }]},
       });

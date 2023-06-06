@@ -35,10 +35,10 @@ export class ModifyDashboardComponent {
     if (this.dashForm.valid) {
       if (this.data) {
         this.srv
-          .updateData(this.data.tag, this.dashForm.value)
+          .updateData(this.data.id, {...this.data,...this.dashForm.value} )
           .subscribe({
             next: (val: any) => {
-              //this.srv.openSnackBar('detail updated!');
+              alert("Data Updated")
               this._dialogRef.close(true);
             },
             error: (err: any) => {
