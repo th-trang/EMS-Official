@@ -12,11 +12,11 @@ export class ServerService {
 
   dailyUpdate() {
     return this.http.get('http://localhost:3000/data')
-    .pipe(map((result: any) => result))
+    .pipe(map((result: any) => result));
   }
 
   getData(): Observable<any> {
-    return this.http.get('http://localhost:3000/data')
+    return this.http.get('http://localhost:3000/data');
   }
 
   updateData(id: number, data: any): Observable<any> {
@@ -24,6 +24,22 @@ export class ServerService {
   }
 
   addData(data: any): Observable<any> {
-    return this.http.post('http://localhost:3000/data', data)
+    return this.http.post('http://localhost:3000/data', data);
+  }
+
+  loginUser(username: any) {
+    return this.http.get(`http://localhost:3000/users?username=${username}`);
+  }
+
+  isLoggedIn() {
+    return sessionStorage.getItem('username')!=null;
+  }
+
+  getUserRole() {
+    return sessionStorage.getItem('userrole')!=null?sessionStorage.getItem('userrole')?.toString():'';
+  }
+
+  getRole(role: any) {
+    return this.http.get(`http://localhost:3000/users?role=${role}`);
   }
 }

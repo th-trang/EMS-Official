@@ -11,7 +11,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { HttpClientModule } from '@angular/common/http'
 import { SublevelMenuComponent } from './sidenav/sublevel-menu.component';
 import { FormsModule } from '@angular/forms';
-import { ServerService } from './server.service';
+import { ServerService } from './shared/server.service';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -28,6 +28,9 @@ import { RangeModificationComponent } from './setting/range-modification/range-m
 import { DateConvertPipe } from './shared/date-convert.pipe';
 import { MatCardModule } from '@angular/material/card';
 import { LoginComponent } from './login/login.component';
+import { NotificationService } from './shared/notification.service';
+
+
 
 @NgModule({
   declarations: [
@@ -40,7 +43,7 @@ import { LoginComponent } from './login/login.component';
     ModifyDashboardComponent,
     DateConvertPipe,
     RangeModificationComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,9 +65,10 @@ import { LoginComponent } from './login/login.component';
     MatSnackBarModule,
     MatIconModule,
     MatCardModule,
-    MatTableModule
+    MatTableModule,
+    
   ],
-  providers: [ServerService],
+  providers: [ServerService, NotificationService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart,registerables } from 'chart.js/auto'
-import { ServerService } from '../../server.service';
+import { ServerService } from '../../shared/server.service';
 Chart.register(...registerables)
 
 @Component({

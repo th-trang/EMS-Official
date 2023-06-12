@@ -71,10 +71,10 @@ export const navbarData : INavbarData[]= [
                 routeLink: 'setting/customize',
                 label: 'Alarm Settings'
             },
-            // {
-            //     routeLink: 'setting/logout',
-            //     label: 'Log Out',
-            // }
+            {
+                routeLink: 'login',
+                label: 'Log Out',
+            }
         ]
     }  
 ]

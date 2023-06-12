@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { dashboardInfo } from './dashboardInfo';
-import { ServerService } from '../server.service';
+import { ServerService } from '../shared/server.service';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ModifyDashboardComponent } from './modify-dashboard/modify-dashboard.component';
@@ -35,6 +35,10 @@ export class DashboardComponent implements OnInit {
       },
       error: console.log
     })
+  }
+
+  getRole() {
+    
   }
 
   openEditForm(data: any) {

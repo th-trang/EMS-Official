@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import * as moment from 'moment'
-import { ServerService } from '../server.service';
+import { ServerService } from './server.service';
 
 @Pipe({
   name: 'dateConvert'
