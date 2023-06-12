@@ -1,5 +1,5 @@
 <div mat-dialog-title>
-    <h1>Details</h1>
+    <h1>{{'details' | translate}}</h1>
 </div>
 <br>
 <form [formGroup]="alarmCusForm" (ngSubmit)="onFormSubmit()">
@@ -10,24 +10,24 @@
                 <input matInput type="text" formControlName="tag" [readonly]=true>
             </mat-form-field>
             <mat-form-field appearance="outline">
-                <mat-label>Device Name</mat-label>
+                <mat-label>{{'sampleName' | translate}}</mat-label>
                 <input matInput type="text" formControlName="name" [readonly]=true>
             </mat-form-field>
         </div>
 
         <div class="row">
             <mat-form-field appearance="outline">
-                <mat-label>Upperbound</mat-label>
+                <mat-label>{{'Upperbound' | translate}}</mat-label>
                 <input matInput type="text" formControlName="upperbound">
             </mat-form-field>
             <mat-form-field appearance="outline">
-                <mat-label>Lowerbound</mat-label>
+                <mat-label>{{'Lowerbound' | translate}}</mat-label>
                 <input matInput type="text" formControlName="lowerbound">
             </mat-form-field>
         </div>
     </div>
     <div mat-dialog-actions class="action">
-        <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
-        <button mat-raised-button color="primary" type="submit">Update</button>
+        <button mat-raised-button type="button" [mat-dialog-close]="false">{{'cancel' | translate}}</button>
+        <button mat-raised-button color="primary" type="submit">{{'update' | translate}}</button>
     </div>
 </form>

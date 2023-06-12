@@ -14,44 +14,8 @@ export const navbarData : INavbarData[]= [
         expanded: false,
         items: [
             {
-                routeLink: 'statistics/flue gas H2O',
-                label: 'Flue Gas H2O',
-            },
-            {
-                routeLink: 'statistics/flue gas HCl',
-                label: 'Flue Gas HCl',
-            },
-            {
-                routeLink: 'statistics/flue gas SO2',
-                label: 'Flue Gas SO2',
-            },
-            {
-                routeLink: 'statistics/flue gas NOx',
-                label: 'Flue Gas NOx',
-            },
-            {
-                routeLink: 'statistics/flue gas CO',
-                label: 'Flue Gas CO',
-            },
-            {
-                routeLink: 'statistics/flue gas O2',
-                label: 'Flue Gas O2',
-            },
-            {
-                routeLink: 'statistics/flue gas dust',
-                label: 'Flue Gas Dust',
-            },
-            {
-                routeLink: 'statistics/flue gas flow',
-                label: 'Flue Gas Flow',
-            },
-            {
-                routeLink: 'statistics/flue gas pressure',
-                label: 'Flue Gas Pressure',
-            },
-            {
-                routeLink: 'statistics/flue gas temperature',
-                label: 'Flue Gas Temperature',
+                routeLink: 'statistics/all gas',
+                label: 'All Factors',
             },
         ]
     },

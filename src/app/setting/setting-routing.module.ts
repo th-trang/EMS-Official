@@ -7,10 +7,6 @@ const routes: Routes = [
     path: 'customize',
     component: SettingComponent
   },
-  // {
-  //   path: 'logout',
-  //   component: 
-  // },
 ];
 
 @NgModule({

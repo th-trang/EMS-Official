@@ -29,6 +29,9 @@ import { DateConvertPipe } from './shared/date-convert.pipe';
 import { MatCardModule } from '@angular/material/card';
 import { LoginComponent } from './login/login.component';
 import { NotificationService } from './shared/notification.service';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {HttpClient} from '@angular/common/http';
 
 
 
@@ -66,10 +69,20 @@ import { NotificationService } from './shared/notification.service';
     MatIconModule,
     MatCardModule,
     MatTableModule,
-    
-  ],
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+    })
+],
   providers: [ServerService, NotificationService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AppModule { }
+export class AppModule {}
+
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+  return new TranslateHttpLoader(http); 
+}

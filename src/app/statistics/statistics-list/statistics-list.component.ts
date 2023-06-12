@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart,registerables } from 'chart.js/auto'
 import { ServerService } from '../../shared/server.service';
+import { TranslateService } from '@ngx-translate/core';
 Chart.register(...registerables)
 
 @Component({
@@ -11,7 +12,12 @@ styleUrls: ['./statistics-list.component.scss']
 export class StatisticsListComponent implements OnInit {
   chart:any;
   
-  constructor(private data: ServerService) {}
+  constructor(private data: ServerService,
+    private translate: TranslateService) {
+      translate.setDefaultLang('vi');
+      translate.use('vi');
+    }
+
 
   ngOnInit(): void {
     this.data.dailyUpdate().subscribe(res=> {

@@ -13,6 +13,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatInputModule } from '@angular/material/input';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {HttpClient} from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +36,18 @@ import { MatInputModule } from '@angular/material/input';
     MatFormFieldModule,
     MatRadioModule,
     FormsModule,
-    MatInputModule
+    MatInputModule,
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+    })
   ]
 })
 export class SettingModule { }
+
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+  return new TranslateHttpLoader(http); 
+}

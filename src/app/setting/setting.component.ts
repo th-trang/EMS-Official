@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ServerService } from '../shared/server.service';
 import { gasComponent } from './gasComponent';
 import { RangeModificationComponent } from './range-modification/range-modification.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-setting',
@@ -19,7 +20,13 @@ export class SettingComponent implements OnInit {
   public displayColumns: string[] = ['tag', 'name', 'upperbound', 'lowerbound', 'action']
   dataSource!: MatTableDataSource<any>
 
-  constructor(private data: ServerService, private _dialog: MatDialog) { }
+  constructor(
+    private data: ServerService, 
+    private _dialog: MatDialog,
+    private translate: TranslateService) {
+      translate.setDefaultLang('vi');
+      translate.use('vi');
+    }
 
   ngOnInit(): void {
     this.getAlarmSettingsInfo()
@@ -50,4 +57,7 @@ export class SettingComponent implements OnInit {
     });
   }
 
+  useLanguage(language: string): void {
+    this.translate.use(language);
+}
 }

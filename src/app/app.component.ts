@@ -1,5 +1,6 @@
 import { Component, DoCheck } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -9,5 +10,8 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'EmissionMonitoringSystem';
- 
+  constructor(private translate: TranslateService) {
+    translate.setDefaultLang('vi');
+    translate.use('vi');
+  }
 }

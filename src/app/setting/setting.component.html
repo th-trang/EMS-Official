@@ -1,4 +1,4 @@
-<h1>Alarm Customization</h1>
+<h1>{{'gasLimit' | translate}}</h1>
 <br>
 
 <div class="main-body">
@@ -10,20 +10,20 @@
           <td mat-cell *matCellDef="let data"> {{data.tag}} </td>
         </ng-container>
         <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <th mat-header-cell *matHeaderCellDef> {{'sampleName' | translate}} </th>
           <td mat-cell *matCellDef="let data"> {{data.name}} </td>
         </ng-container>
         <ng-container matColumnDef="upperbound">
-          <th mat-header-cell *matHeaderCellDef> Upperbound </th>
+          <th mat-header-cell *matHeaderCellDef> {{'upperbound' | translate}} </th>
           <td mat-cell *matCellDef="let data"> {{data.upperbound}} </td>
         </ng-container>
         <ng-container matColumnDef="lowerbound">
-          <th mat-header-cell *matHeaderCellDef> Lowerbound </th>
+          <th mat-header-cell *matHeaderCellDef> {{'lowerbound' | translate}} </th>
           <td mat-cell *matCellDef="let data"> {{data.lowerbound}} </td>
         </ng-container>
   
         <ng-container matColumnDef="action">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'action' | translate}} </th>
           <td mat-cell *matCellDef="let data">
             <button mat-icon-button color="primary" (click)="openEditForm(data)">
               <mat-icon>edit</mat-icon>
@@ -37,3 +37,12 @@
       </table>
     </div>
   </div>
+
+<div class="language">
+  
+  <button mat-button 
+  class="flag-icon flag-icon-vi flag-icon-squared"
+  (click)="useLanguage('vi')">vn
+  </button>
+  <button mat-icon-button (click)="useLanguage('en')">en</button>
+</div>

@@ -4,10 +4,6 @@
   "newProjectRoot": "projects",
   "projects": {
     "EmissionMonitoringSystem": {
-      "i18n": {
-        "sourceLocale": "en-US",
-        "locales":{"vi-VN": "src/shared/messages.es.xlf"}
-      },
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -21,9 +17,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "localize": [
-              "vi-VN"
-            ],
             "outputPath": "dist/emission-monitoring-system",
             "index": "src/index.html",
             "main": "src/main.ts",
