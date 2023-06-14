@@ -11,7 +11,7 @@ const port = 3000;
 // Kết nối tới cơ sở dữ liệu MySQL
 const db = mysql.createConnection({
   host: 'localhost',
-  user: 'root',
+  user: 'admin',
   password: 'Admin@123',
   database: 'DB_CEM'
 });
