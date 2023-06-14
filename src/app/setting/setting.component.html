@@ -1,4 +1,5 @@
 <h1>{{'gasLimit' | translate}}</h1>
+
 <br>
 
 <div class="main-body">
@@ -39,10 +40,11 @@
   </div>
 
 <div class="language">
-  
-  <button mat-button 
-  class="flag-icon flag-icon-vi flag-icon-squared"
-  (click)="useLanguage('vi')">vn
-  </button>
-  <button mat-icon-button (click)="useLanguage('en')">en</button>
+  <span class="fi fi-vn">
+    <button mat-button (click)="useLanguage('vi')"></button>
+  </span>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  <span class="fi fi-us">
+    <button mat-button (click)="useLanguage('en')"></button>
+  </span>
 </div>

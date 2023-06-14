@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServerService {
-  
+
   constructor(private http: HttpClient) {}
 
   dailyUpdate() {
@@ -23,23 +23,11 @@ export class ServerService {
     return this.http.put(`http://localhost:3000/data/${id}`, data);
   }
 
-  addData(data: any): Observable<any> {
-    return this.http.post('http://localhost:3000/data', data);
-  }
-
   loginUser(username: any) {
     return this.http.get(`http://localhost:3000/users?username=${username}`);
   }
 
   isLoggedIn() {
     return sessionStorage.getItem('username')!=null;
-  }
-
-  getUserRole() {
-    return sessionStorage.getItem('userrole')!=null?sessionStorage.getItem('userrole')?.toString():'';
-  }
-
-  getRole(role: any) {
-    return this.http.get(`http://localhost:3000/users?role=${role}`);
   }
 }

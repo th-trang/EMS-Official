@@ -43,6 +43,10 @@ export class StatisticsListComponent implements OnInit {
       });
     })
   }
+
+  useLanguage(language: string): void {
+    this.translate.use(language);
+}
 }
 
 

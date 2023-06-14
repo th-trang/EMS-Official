@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServerService } from '../shared/server.service';
 import { alarmData } from './alarmInfo';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-alarm',
@@ -11,7 +12,13 @@ export class AlarmComponent implements OnInit{
   filteredData: any;
   displayColumns: string[] = ['tag', 'name', 'status', 'dt', 'realtimeValue']
   unfilteredData: alarmData[] = []
-  constructor(private data: ServerService) { }
+  constructor(
+    private data: ServerService,
+    private translate: TranslateService
+    ) {
+      translate.setDefaultLang('vi');
+      translate.use('vi');
+     }
 
   ngOnInit(): void {
     this.getAlarmData();
@@ -24,5 +31,8 @@ export class AlarmComponent implements OnInit{
     })
   }
 
+  useLanguage(language: string): void {
+    this.translate.use(language);
+}
 
 }

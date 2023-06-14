@@ -31,3 +31,13 @@
     <tr mat-row *matRowDef="let data; columns: displayColumns;"></tr>
   </table>
 </div>
+
+<div class="language">
+  <span class="fi fi-vn">
+    <button mat-button (click)="useLanguage('vi')"></button>
+  </span>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  <span class="fi fi-us">
+    <button mat-button (click)="useLanguage('en')"></button>
+  </span>
+</div>
