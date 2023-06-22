@@ -32,6 +32,7 @@ import { NotificationService } from './shared/notification.service';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient} from '@angular/common/http';
+import { SignupComponent } from './signup/signup.component';
 
 
 
@@ -47,6 +48,7 @@ import {HttpClient} from '@angular/common/http';
     DateConvertPipe,
     RangeModificationComponent,
     LoginComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,

@@ -58,7 +58,7 @@ export class SidenavComponent  implements OnInit {
 
   ngDoCheck(): void {
     let currentUrl = this.router.url;
-    if(currentUrl == '/login') {
+    if(currentUrl == '/login' || currentUrl == '/signup') {
       this.isMenuRequired = false
     } else {
       this.isMenuRequired = true
