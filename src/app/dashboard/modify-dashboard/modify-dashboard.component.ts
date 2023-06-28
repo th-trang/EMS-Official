@@ -20,7 +20,7 @@ export class ModifyDashboardComponent {
     this.dashForm = this._fb.group({
       tag: '',
       name: '',
-      setPoint: '',
+      expectedValue: '',
       realtimeValue: '',
       unit: '',
       designP: ''

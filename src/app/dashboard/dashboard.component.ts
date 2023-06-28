@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
 
   public dashboardData: dashboardInfo[] = [];
-  public displayColumns: string[] = ['tag', 'name', 'setPoint', 'realtimeValue', 'unit', 'designP', 'action'];
+  public displayColumns: string[] = ['tag', 'name', 'expectedValue', 'realtimeValue', 'unit', 'designP', 'action'];
   dataSource!: MatTableDataSource<any>
   userRoleStatus!: string;
 
