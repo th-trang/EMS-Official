@@ -8,7 +8,7 @@ import { AlarmComponent } from './alarm/alarm.component';
 import { BodyComponent } from './body/body.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { SublevelMenuComponent } from './sidenav/sublevel-menu.component';
 import { FormsModule } from '@angular/forms';
 import { ServerService } from './shared/server.service';
@@ -33,6 +33,7 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient} from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
+import { AuthInterceptorService } from './shared/auth-interceptor.service';
 
 
 
@@ -79,7 +80,13 @@ import { SignupComponent } from './signup/signup.component';
       }
     })
 ],
-  providers: [ServerService, NotificationService],
+  providers: [ServerService, NotificationService, 
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptorService,
+    multi: true
+  }
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

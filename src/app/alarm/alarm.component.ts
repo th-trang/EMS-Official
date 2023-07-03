@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ServerService } from '../shared/server.service';
 import { alarmData } from './alarmInfo';
 import { TranslateService } from '@ngx-translate/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
+import { Data } from '../dashboard/dashboardInfo';
 
 @Component({
   selector: 'app-alarm',
@@ -9,9 +12,14 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./alarm.component.scss']
 })
 export class AlarmComponent implements OnInit{
+
+  @ViewChild(MatSort) sort!: MatSort;
+
   filteredData: any;
-  displayColumns: string[] = ['tag', 'name', 'status', 'dt', 'realtimeValue']
-  unfilteredData: alarmData[] = []
+  displayColumns: string[] = ['tag', 'name', 'time', 'realtimeValue']
+  unfilteredData: any;
+  dataSource!: MatTableDataSource<any>
+  
   constructor(
     private data: ServerService,
     private translate: TranslateService
@@ -22,17 +30,27 @@ export class AlarmComponent implements OnInit{
 
   ngOnInit(): void {
     this.getAlarmData();
+    this.compareValues();
   }
 
   getAlarmData() {
     this.data.getData().subscribe(res => {
-      this.unfilteredData = res
-      this.filteredData = this.unfilteredData.filter((item) => item.status === 'High')
+      this.dataSource = new MatTableDataSource(res)
+      this.dataSource.sort = this.sort
     })
   }
 
   useLanguage(language: string): void {
     this.translate.use(language);
 }
+
+  compareValues() {
+    this.data.getData().subscribe(res => {
+      this.unfilteredData = res
+      for (let i = 0; i < this.unfilteredData.length; i++) {
+        console.log(this.unfilteredData[i].expectedValue)
+      }
+    })
+  }
 
 }

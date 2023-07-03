@@ -1,43 +1,34 @@
 <div class="sidenav" *ngIf="isMenuRequired">
     <div class="thang-long-logo">
-        <img src="./assets/img/thang-long-logo-transparent (2) (1).png" alt="Thang Long logo" class="thang-long-logo-img">  
+        <img src="./assets/img/thang-long-logo-transparent (2) (1).png" alt="Thang Long logo"
+            class="thang-long-logo-img">
     </div>
-    <div class="scrollwrap scrollwrap_delayed" >
+    <div class="scrollwrap scrollwrap_delayed">
         <ul class="sidenav-nav">
             <li class="sidenav-nav-item" *ngFor="let data of navData">
-                <a  class="sidenav-nav-link" (click)="handleClick(data)"
-                    *ngIf="data.items && data.items.length > 0"
+                <a class="sidenav-nav-link" (click)="handleClick(data)" *ngIf="data.items && data.items.length > 0"
                     [ngClass]="getActiveClass(data)">
                     <i class="sidenav-link-icon" [class]="data.icon"></i>
-                    <span class="sidenav-link-text">{{data.label}}</span>
+                    <span class="sidenav-link-text">{{data.label | translate}}</span>
                     <i *ngIf="data.items" class="menu-collapse-icon"
-                        [ngClass]="!data.expanded ? 'fal fa-angle-right' : 'fal fa-angle-down'"
-                    >
-                </i>
+                        [ngClass]="!data.expanded ? 'fal fa-angle-right' : 'fal fa-angle-down'">
+                    </i>
                 </a>
-
-                <a  class="sidenav-nav-link" 
-                    *ngIf="!data.items || (data.items && data.items.length === 0)"
-                    [routerLink]="[data.routeLink]"
-                    routerLinkActive="active" 
-                    [routerLinkActiveOptions]="{exact: true}">
+                <a class="sidenav-nav-link" *ngIf="!data.items || (data.items && data.items.length === 0)"
+                    [routerLink]="[data.routeLink]" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                     <i class="sidenav-link-icon" [class]="data.icon"></i>
                     <span class="sidenav-link-text">{{data.label}}</span>
                 </a>
                 <div *ngIf="data.items && data.items.length > 0">
-                    <app-sublevel-menu
-                    [data]="data"
-                    [multiple]="multiple"
-                    [expanded]="data.expanded">
+                    <app-sublevel-menu [data]="data" [multiple]="multiple" [expanded]="data.expanded">
                     </app-sublevel-menu>
                 </div>
             </li>
         </ul>
+        <br>
         <div class="esec-logo">
-            <img src="./assets/img/esec3-transparent (1) (2).png" alt="ESEC logo" class="esec-logo-img">  
+            <img src="./assets/img/esec3-transparent (1) (2).png" alt="ESEC logo" class="esec-logo-img">
         </div>
     </div>
 </div>
-
-
 

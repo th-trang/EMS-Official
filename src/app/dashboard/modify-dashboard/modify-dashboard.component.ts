@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, EventEmitter, Inject, Output } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ServerService } from '../../shared/server.service';
@@ -10,6 +10,7 @@ import { ServerService } from '../../shared/server.service';
 })
 export class ModifyDashboardComponent {
   dashForm: FormGroup;
+  @Output() update: EventEmitter<any> = new EventEmitter();
 
   constructor(
     private _fb: FormBuilder,

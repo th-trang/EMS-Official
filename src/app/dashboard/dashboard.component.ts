@@ -1,11 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { dashboardInfo } from './dashboardInfo';
+import { Data } from './dashboardInfo';
 import { ServerService } from '../shared/server.service';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ModifyDashboardComponent } from './modify-dashboard/modify-dashboard.component';
 import { MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,8 +18,7 @@ export class DashboardComponent implements OnInit {
 
   @ViewChild(MatSort) sort!: MatSort;
 
-  public dashboardData: dashboardInfo[] = [];
-  public displayColumns: string[] = ['tag', 'name', 'expectedValue', 'realtimeValue', 'unit', 'designP', 'action'];
+  displayColumns: string[] = ['tag', 'name', 'expectedValue', 'realtimeValue', 'unit', 'designP', 'action'];
   dataSource!: MatTableDataSource<any>
   userRoleStatus!: string;
 
@@ -32,10 +32,8 @@ export class DashboardComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.getDashboardInfo();
+     this.getDashboardInfo();
   }
-
-
 
   getDashboardInfo() {
     this.data.getData().subscribe({

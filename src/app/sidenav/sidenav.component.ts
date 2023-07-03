@@ -13,7 +13,7 @@ interface SideNavToggle {
   styleUrls: ['./sidenav.component.scss'],
 })
 
-export class SidenavComponent  implements OnInit {
+export class SidenavComponent implements OnInit {
 
   @Output() onToggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
   screenWidth = 0;
@@ -23,19 +23,20 @@ export class SidenavComponent  implements OnInit {
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.screenWidth = window.innerWidth;
-    if(this.screenWidth <= 768) {
-      this.onToggleSideNav.emit({ screenWidth: this.screenWidth});
+    if (this.screenWidth <= 768) {
+      this.onToggleSideNav.emit({ screenWidth: this.screenWidth });
     }
   }
 
-  constructor(public router: Router) {}
+  constructor(public router: Router) {
+   }
 
   ngOnInit(): void {
     this.screenWidth = window.innerWidth;
   }
 
   handleClick(item: INavbarData): void {
-   this.shrinkItems(item)
+    this.shrinkItems(item)
     item.expanded = !item.expanded
   }
 
@@ -46,7 +47,7 @@ export class SidenavComponent  implements OnInit {
 
   shrinkItems(item: INavbarData): void {
     if (!this.multiple) {
-      for(let modelItem of this.navData) {
+      for (let modelItem of this.navData) {
         if (item !== modelItem && modelItem.expanded) {
           modelItem.expanded = false;
         }
@@ -58,7 +59,7 @@ export class SidenavComponent  implements OnInit {
 
   ngDoCheck(): void {
     let currentUrl = this.router.url;
-    if(currentUrl == '/login' || currentUrl == '/signup') {
+    if (currentUrl == '/login' || currentUrl == '/signup') {
       this.isMenuRequired = false
     } else {
       this.isMenuRequired = true
