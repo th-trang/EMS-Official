@@ -10,7 +10,6 @@ import { ServerService } from '../../shared/server.service';
 })
 export class ModifyDashboardComponent {
   dashForm: FormGroup;
-  @Output() update: EventEmitter<any> = new EventEmitter();
 
   constructor(
     private _fb: FormBuilder,
@@ -36,9 +35,10 @@ export class ModifyDashboardComponent {
     if (this.dashForm.valid) {
       if (this.data) {
         this.srv
-          .updateData(this.data.id, {...this.data,...this.dashForm.value} )
+          .update(this.dashForm.value)
           .subscribe({
             next: (val: any) => {
+              console.log(this.dashForm.value)
               alert("Data Updated")
               this._dialogRef.close(true);
             },
@@ -49,4 +49,5 @@ export class ModifyDashboardComponent {
       }
     }
   }
+
 }

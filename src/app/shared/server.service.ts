@@ -7,6 +7,7 @@ import { first, catchError } from 'rxjs/operators'
 import { ErrorHandlerService } from './error-handler.service';
 import { Router } from '@angular/router';
 import { Data } from '../dashboard/dashboardInfo';
+import { gasBound } from '../setting/gasComponent';
 
 @Injectable({
   providedIn: 'root'
@@ -42,8 +43,14 @@ export class ServerService {
     );
   }
 
-  updateData(id: number, data: any): Observable<any> {
-    return this.http.put(`http://localhost:3000/data/${id}`, data);
+  update(data: Data): Observable<any> {
+    return this.http.put('http://localhost:3000/dashboard', data, this.httpOptions)
+    .pipe(catchError(this.errorHandlerService.handleError<any>("update")));
+  }
+
+  customize(data: gasBound): Observable<any> {
+    return this.http.put('http://localhost:3000/customize', data, this.httpOptions)
+    .pipe(catchError(this.errorHandlerService.handleError<any>("update")));
   }
 
   login(
@@ -70,11 +77,6 @@ export class ServerService {
             token: string; userId: Pick<User, 'id'>
           }>("login"))
       )
-  }
-
-
-  isLoggedIn() {
-    return sessionStorage.getItem('username') != null;
   }
 
   signup(user: Omit<User, "id">): Observable<User> {

@@ -3,7 +3,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ServerService } from '../shared/server.service';
-import { gasComponent } from './gasComponent';
 import { RangeModificationComponent } from './range-modification/range-modification.component';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -16,7 +15,6 @@ export class SettingComponent implements OnInit {
 
   @ViewChild(MatSort) sort!: MatSort;
 
-  public gasComponents: gasComponent[] = []
   public displayColumns: string[] = ['tag', 'name', 'upperbound', 'lowerbound', 'action']
   dataSource!: MatTableDataSource<any>
 
@@ -29,10 +27,10 @@ export class SettingComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    this.getAlarmSettingsInfo()
+    this. getCustomizeTab()
   }
 
-  getAlarmSettingsInfo() {
+  getCustomizeTab() {
     this.data.getData().subscribe({
       next: (res) => {
         this.dataSource = new MatTableDataSource(res)
@@ -51,7 +49,7 @@ export class SettingComponent implements OnInit {
     dialogRef.afterClosed().subscribe({
       next: (val: any) => {
         if (val) {
-          this.getAlarmSettingsInfo;
+          this.getCustomizeTab();
         }
       },
     });

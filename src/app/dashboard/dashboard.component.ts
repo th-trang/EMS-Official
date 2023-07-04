@@ -6,7 +6,6 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ModifyDashboardComponent } from './modify-dashboard/modify-dashboard.component';
 import { MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',

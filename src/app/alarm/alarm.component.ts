@@ -47,8 +47,14 @@ export class AlarmComponent implements OnInit{
   compareValues() {
     this.data.getData().subscribe(res => {
       this.unfilteredData = res
+      
       for (let i = 0; i < this.unfilteredData.length; i++) {
-        console.log(this.unfilteredData[i].expectedValue)
+        let expectedValue = (this.unfilteredData[i].expectedValue)
+        let realtimeValue = (this.unfilteredData[i].realtimeValue)
+        let status: string;
+        if (realtimeValue > expectedValue) {
+          this.unfilteredData[i].status = "High"
+        }
       }
     })
   }

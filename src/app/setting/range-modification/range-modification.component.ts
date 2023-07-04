@@ -31,16 +31,19 @@ export class RangeModificationComponent implements OnInit{
 
   onFormSubmit() {
     if (this.alarmCusForm.valid) {
-      if(this.data) {
-        this.srv.updateData(this.data.id, {...this.data,...this.alarmCusForm.value} )
-        .subscribe({
-          next: (val: any) => {
-            alert("Data updated")
-            this._dialogRef.close(true) 
-          }, error(err: any) {
-            console.log(err)
-          },
-        })
+      if (this.data) {
+        this.srv
+          .customize(this.alarmCusForm.value)
+          .subscribe({
+            next: (val: any) => {
+              console.log(this.alarmCusForm.value)
+              alert("Data Updated")
+              this._dialogRef.close(true);
+            },
+            error: (err: any) => {
+              console.error(err);
+            },
+          });
       }
     }
   }
