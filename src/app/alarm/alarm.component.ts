@@ -16,7 +16,7 @@ export class AlarmComponent implements OnInit{
   @ViewChild(MatSort) sort!: MatSort;
 
   filteredData: any;
-  displayColumns: string[] = ['tag', 'name', 'time', 'realtimeValue']
+  displayColumns: string[] = ['tag', 'name', 'time', 'realtimeValue', 'status']
   unfilteredData: any;
   dataSource!: MatTableDataSource<any>
   
@@ -30,7 +30,7 @@ export class AlarmComponent implements OnInit{
 
   ngOnInit(): void {
     this.getAlarmData();
-    this.compareValues();
+    //this.compareValues();
   }
 
   getAlarmData() {
@@ -44,19 +44,19 @@ export class AlarmComponent implements OnInit{
     this.translate.use(language);
 }
 
-  compareValues() {
-    this.data.getData().subscribe(res => {
-      this.unfilteredData = res
+  // compareValues() {
+  //   this.data.getData().subscribe(res => {
+  //     this.unfilteredData = res
       
-      for (let i = 0; i < this.unfilteredData.length; i++) {
-        let expectedValue = (this.unfilteredData[i].expectedValue)
-        let realtimeValue = (this.unfilteredData[i].realtimeValue)
-        let status: string;
-        if (realtimeValue > expectedValue) {
-          this.unfilteredData[i].status = "High"
-        }
-      }
-    })
-  }
+  //     for (let i = 0; i < this.unfilteredData.length; i++) {
+  //       let expectedValue = (this.unfilteredData[i].expectedValue)
+  //       let realtimeValue = (this.unfilteredData[i].realtimeValue)
+  //       let status: string;
+  //       if (realtimeValue > expectedValue) {
+  //         this.unfilteredData[i].status = "High"
+  //       }
+  //     }
+  //   })
+  // }
 
 }
