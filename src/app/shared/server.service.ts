@@ -31,11 +31,6 @@ export class ServerService {
     private router: Router
   ) { }
 
-  dailyUpdate() {
-    return this.http.get('http://localhost:3000/data')
-      .pipe(map((result: any) => result));
-  }
-
   getData(): Observable<Data[]> {
     return this.http.get<Data[]>('http://localhost:3000/dashboard', {responseType: 'json'})
     .pipe(

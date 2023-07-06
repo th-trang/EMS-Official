@@ -10,6 +10,7 @@ import { ServerService } from "../shared/server.service";
 })
 export class SignupComponent implements OnInit {
   signupForm!: FormGroup;
+  hide = true;
 
   constructor(private srv: ServerService, private router: Router) {}
 

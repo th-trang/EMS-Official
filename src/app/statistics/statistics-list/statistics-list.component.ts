@@ -20,12 +20,12 @@ export class StatisticsListComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.data.dailyUpdate().subscribe(res=> {
+    this.data.getData().subscribe(res=> {
       let value = res.map((res:any) => res.realtimeValue)
-      let date = res.map((res:any) => res.dt)
+      let time = res.map((res:any) => res.time)
 
       let allDates: string[] = []
-      date.forEach((res: any) => {
+      time.forEach((res: any) => {
         let jsdate = new Date(res * 1000)
         allDates.push(jsdate.toLocaleDateString('en', {year: 'numeric', month: 'short', day: 'numeric'}))
       });
