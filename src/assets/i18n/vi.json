@@ -25,7 +25,7 @@
 	"status": "Trạng thái",
 	"temperature": "Nhiệt độ khí",
 	"time": "Thời gian",
-	"typicalValue": "Giá trị điển hình",
+	"setPoint": "Giá trị đặt",
 	"unit": "Đơn vị",
 	"update": "Cập nhật",
 	"upperbound": "Tối đa",

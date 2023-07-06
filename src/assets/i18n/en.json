@@ -25,7 +25,7 @@
 	"status": "Status",
 	"temperature": "Gas Temperature",
 	"time": "Time",
-	"typicalValue": "Typical Value",
+	"setPoint": "Set Point",
 	"unit": "Unit",
 	"update": "Update",
 	"upperbound": "Upperbound",

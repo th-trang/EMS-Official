@@ -14,12 +14,12 @@ const routes: Routes = [
   {
     path: 'statistics',
     loadChildren: () => import('./statistics/statistics.module').then(m => m.StatisticsModule),
+    canActivate:[AuthGuard]
   },
-  {path: 'alarm', component: AlarmComponent,},
+  {path: 'alarm', component: AlarmComponent, canActivate:[AuthGuard]},
   {
     path: 'setting', 
-    loadChildren: () => import('./setting/setting.module').then(m => m.SettingModule),
-  
+    loadChildren: () => import('./setting/setting.module').then(m => m.SettingModule)
   },
 ];
 
