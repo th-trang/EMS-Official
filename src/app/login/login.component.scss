@@ -1,21 +1,22 @@
 mat-card {
-    margin-top: 250px; 
-    margin-bottom: 120px;
-    margin-right: 150px;
-    margin-left: 250px;
-    width: 50%;
-    position: flex;
-
+    border: solid;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: fit-content;
 }
 
 mat-card-header {
-    margin: 0 auto;
-    width: 30%;
-}
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    display: block;
+  }
 
 form {
-    margin: 0 auto;
-    width: 45%;
+    margin: 0;
+    width: 100%;
 }
 
 mat-form-field {

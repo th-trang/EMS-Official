@@ -2,6 +2,7 @@ import { Component, EventEmitter, Inject, Output } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ServerService } from '../../shared/server.service';
+import { NotificationService } from '../../shared/notification.service';
 
 @Component({
   selector: 'app-modify-dashboard',
@@ -16,6 +17,7 @@ export class ModifyDashboardComponent {
     private srv: ServerService,
     private _dialogRef: MatDialogRef<ModifyDashboardComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
+    private noti: NotificationService
   ) {
     this.dashForm = this._fb.group({
       tag: '',
@@ -39,7 +41,7 @@ export class ModifyDashboardComponent {
           .subscribe({
             next: (val: any) => {
               console.log(this.dashForm.value)
-              alert("Data Updated")
+              this.noti.openSnackBar("Success!")
               this._dialogRef.close(true);
             },
             error: (err: any) => {

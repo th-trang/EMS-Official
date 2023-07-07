@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-body',
@@ -6,16 +7,15 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./body.component.scss']
 })
 export class BodyComponent {
+  constructor(private route: ActivatedRoute) { }
 
-    @Input() screenWidth = 0
+  @Input() screenWidth = 0
 
   getBodyClass(): string {
-      let styleClass = '';
-      if(this.screenWidth > 768) {
-        styleClass = 'body-trimmed'
-      } else if (this.screenWidth <= 768 && this.screenWidth > 0) {
-        styleClass = 'body-md-screen'
-      }
-      return styleClass;
+    let snapshot: any = this.route.snapshot;
+    if (~snapshot?._routerState?.url.search('login')) return 'login';
+    if (this.screenWidth > 768) return 'body-trimmed'
+    if (this.screenWidth <= 768 && this.screenWidth > 0) return 'body-md-screen';
+    return '';
   }
 }

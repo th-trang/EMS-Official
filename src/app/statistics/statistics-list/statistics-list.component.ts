@@ -34,7 +34,7 @@ export class StatisticsListComponent implements OnInit {
       this.chart = new Chart("linechart", {
         type: 'line',
         data: {
-          labels: allDates,
+          labels: time,
           datasets: [{
             label: 'Value',
             data: value,

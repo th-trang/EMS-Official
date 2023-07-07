@@ -14,7 +14,7 @@ export const navbarData : INavbarData[]= [
         expanded: false,
         items: [
             {
-                routeLink: 'statistics/all',
+                routeLink: 'statistics/all gas',
                 label: 'All Factors',
             },
         ]

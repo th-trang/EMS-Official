@@ -8,6 +8,7 @@ import { ErrorHandlerService } from './error-handler.service';
 import { Router } from '@angular/router';
 import { Data } from '../dashboard/dashboardInfo';
 import { gasBound } from '../setting/gasComponent';
+import { NotificationService } from './notification.service';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +29,8 @@ export class ServerService {
   constructor(
     private http: HttpClient,
     private errorHandlerService: ErrorHandlerService,
-    private router: Router
+    private router: Router,
+    private noti: NotificationService
   ) { }
 
   getData(): Observable<Data[]> {
@@ -65,6 +67,7 @@ export class ServerService {
           this.userId = tokenObject.userId
           localStorage.setItem("token", tokenObject.token)
           this.isUserLoggedIn$.next(true)
+          this.noti.openSnackBar("Success")
           this.router.navigate(['dashboard'])
         }),
         catchError(

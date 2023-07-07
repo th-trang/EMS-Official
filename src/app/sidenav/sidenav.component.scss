@@ -12,59 +12,21 @@
         align-items: center;
         padding: 0.938rem 0.938rem 0 0.938rem;
         width: 100%;
-
-        // .logo {
-        //     background: #fff;
-        //     text-align: center;
-        //     width: 3rem;
-        //     min-width: 3rem;
-        //     border-radius: 0.313rem;
-        //     padding: 0.313rem;
-        //     font-size: 24px;
-        //     font-weight: 900;
-        //     cursor: pointer;
-        //     border: none;
-        //     color: #0B2447;
-        // }
-
-        // .logo-text {
-        //     margin-left: 0.1rem;
-        //     text-align: center;
-        //     font-size: 15px;
-        //     font-weight: 600;
-        //     color: #393E46;
-        // }
-
-        // .logo-img {
-        //     height: 3rem;
-        //     width: 12rem;
-        //     border-radius: 1;
-        // }
-            
-        .esec-logo {
-            align-items: center;
-            position: relative;
-            width: 3rem;
-            min-width: 3rem;
-            border-radius: 0.313rem;
-            padding: 0.313rem;
-            font-weight: 900;
-                    
-            .esec-logo-img {
-                height: 3rem;
-                width: 12rem;
-                border-radius: 1;
-                position: absolute;
-                bottom: 0%;
-
-                .fa-times {
-                    color: #0B2447;
-                    font-size: 24px;
-                }
-        }    }
     }
 }
 
+ 
+.esec-logo {
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+            
+    .esec-logo-img {
+        height: 6rem;
+        width: 100%;
+        padding: 0.938rem 0.938rem 0 0.938rem;
+    }    
+}
 
 .sidenav-nav {
     list-style: none;

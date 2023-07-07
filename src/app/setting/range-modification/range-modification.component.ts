@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ServerService } from '../../shared/server.service';
+import { NotificationService } from '../../shared/notification.service';
 
 @Component({
   selector: 'app-range-modification',
@@ -16,6 +17,7 @@ export class RangeModificationComponent implements OnInit{
     private srv: ServerService,
     private _dialogRef: MatDialogRef<RangeModificationComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
+    private noti: NotificationService
   ) {
     this.alarmCusForm = this._fb.group({
       tag: '',
@@ -36,8 +38,7 @@ export class RangeModificationComponent implements OnInit{
           .customize(this.alarmCusForm.value)
           .subscribe({
             next: (val: any) => {
-              console.log(this.alarmCusForm.value)
-              alert("Data Updated")
+              this.noti.openSnackBar("Success!")
               this._dialogRef.close(true);
             },
             error: (err: any) => {

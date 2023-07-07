@@ -10,13 +10,12 @@ const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'signup', component: SignupComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'dashboard', component: DashboardComponent, canActivate:[AuthGuard]},
+  {path: 'dashboard', component: DashboardComponent},
   {
     path: 'statistics',
     loadChildren: () => import('./statistics/statistics.module').then(m => m.StatisticsModule),
-    canActivate:[AuthGuard]
   },
-  {path: 'alarm', component: AlarmComponent, canActivate:[AuthGuard]},
+  {path: 'alarm', component: AlarmComponent},
   {
     path: 'setting', 
     loadChildren: () => import('./setting/setting.module').then(m => m.SettingModule)
