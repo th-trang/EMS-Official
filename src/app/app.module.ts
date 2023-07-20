@@ -34,6 +34,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient} from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
 import { AuthInterceptorService } from './shared/auth-interceptor.service';
+import { SocketService } from './shared/socket.service';
 
 
 
@@ -80,7 +81,7 @@ import { AuthInterceptorService } from './shared/auth-interceptor.service';
       }
     })
 ],
-  providers: [ServerService, NotificationService, 
+  providers: [ServerService, NotificationService, SocketService, 
   {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptorService,

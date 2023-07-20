@@ -20,4 +20,8 @@ export class SocketService {
       })
     })
   }
+
+  disconnect(): void {
+    this.socket.disconnect();
+  }
 }
