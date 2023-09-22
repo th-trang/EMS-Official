@@ -6,6 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ModifyDashboardComponent } from './modify-dashboard/modify-dashboard.component';
 import { MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
+import { io, Socket } from 'socket.io-client';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,6 +21,7 @@ export class DashboardComponent implements OnInit {
   displayColumns: string[] = ['tag', 'name', 'expectedValue', 'realtimeValue', 'unit', 'designP', 'action'];
   dataSource!: MatTableDataSource<any>
   userRoleStatus!: string;
+  private socket!: Socket;
 
   constructor(
     private data: ServerService,
@@ -32,6 +34,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
      this.getDashboardInfo();
+     this.connectWebSocket();
   }
 
   getDashboardInfo() {
@@ -44,6 +47,17 @@ export class DashboardComponent implements OnInit {
     })
   }
 
+  connectWebSocket() {
+    this.socket = io('http://localhost:3000');
+    this.socket.on('data', (realtimeData: Data[]) => {
+      if (Array.isArray(this.dataSource.data)) {
+        this.dataSource.data = this.dataSource.data.map((item: Data) => {
+          const newData: Data = realtimeData.find((d: Data) => d.tag === item.tag) || item;
+          return newData;
+        });
+      }
+    });
+  }
 
   openEditForm(data: any) {
     const dialogRef = this._dialog.open(ModifyDashboardComponent, {
